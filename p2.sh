@@ -1,12 +1,13 @@
-echo "Enter the name of first file:"
-read file1
-echo "Enter the name of second file:"
-read file2
-cmp -s $1 $2
-if [ $? -eq 0]
-then 
-echo "Both files are equal"
-rm $file2
+#!/bin/sh
+echo "Read first file: "
+read f1
+echo "Read file 2: "
+read f2
+cmp -s $f1 $f2
+if [ $? -eq 0 ]
+then
+        echo "Both files are equal"
+        rm $f2
 else
- echo "Both files are unequal"
- fi
+        echo "Both are unequal"
+fi
