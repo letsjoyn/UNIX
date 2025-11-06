@@ -1,20 +1,25 @@
-#! /bin/sh
+#!/bin/sh
 a=0
-echo "Enter the Database Name:"
+echo "Enter database name: "
 read fname
-while [ $a -lt 5 ]  
+echo "Enter number of students: "
+read n
+while [ $a -lt $n ]
 do
-	echo "Enter ID of Student: "
-	read sid
-	echo "Enter Name of Student: "
-	read sname
-	echo "Enter Semester of Student: "
-	read sem
-	echo "Enter Dept of Student: "
-	read dept
-	a=`expr $a + 1`  
-	echo $sid $sname $sem $dept >> $fname   
+        echo "Enter student id: "
+        read sid
+        echo "Enter sname: "
+        read sname
+        echo "Enter sem: "
+        read sem
+        echo "Enter dept: "
+        read dept
+        a=$(expr $a + 1)
+        echo "$sid $sname $sem $dept" >> $fname
 done
-cat $fname | cut -d' ' -f2,4   
-sort -k4 $fname | cut -d' ' -f4 | uniq -c
 
+echo "Student details"
+sort $fname | uniq
+
+echo "Dept with stud count"
+cut -d ' ' -f4 $fname | sort | uniq -c
