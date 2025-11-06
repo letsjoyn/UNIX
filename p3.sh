@@ -1,9 +1,9 @@
 if [ -d "$1" ]
 then
-    echo "File is a directory"
+        echo " File is a directory"
 elif [ -f "$1" ]
 then
-    echo "File is a regular file"
+        echo "File is regular"
 else
-    echo "File is something else"
+        echo "File is something else"
 fi
