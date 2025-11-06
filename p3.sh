@@ -1,13 +1,9 @@
-a=`ls -l | grep $1 | cut -b1`
-if [ $a = 'd' ]
+if [ -d "$1" ]
 then
-	echo "File is a directory"
+    echo "File is a directory"
+elif [ -f "$1" ]
+then
+    echo "File is a regular file"
 else
-	if [ $a = '-' ]
-	then
-	       	echo "file is a regular file"
-	else
-		echo "file is different"
-	fi
+    echo "File is something else"
 fi
-
